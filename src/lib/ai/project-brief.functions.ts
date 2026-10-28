@@ -8,7 +8,7 @@ const inputSchema = z.object({
 });
 
 export const getProjectBrief = createServerFn({ method: "POST" })
-  .inputValidator((input: { title: string }) => inputSchema.parse(input))
+  .validator((input: { title: string }) => inputSchema.parse(input))
   .handler(async ({ data }) => {
     // Only summarize projects that actually exist in the portfolio data —
     // the client sends a title, never free-form content.
