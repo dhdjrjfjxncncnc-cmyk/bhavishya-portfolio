@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState, type ReactNode } from "react";
 import { z } from "zod";
 import {
-  ArrowRight, ArrowUp, ArrowUpRight, Brain, Code2, Lightbulb, Mail, Puzzle, Rocket, Send, ShieldCheck, Terminal, CheckCircle2,
+  ArrowRight, ArrowUp, ArrowUpRight, Brain, Code2, Lightbulb, Loader2, Mail, Puzzle, Rocket, Send, ShieldCheck, Sparkles, Target, Terminal, TrendingUp, Wrench, X, CheckCircle2,
 } from "lucide-react";
-import { profile, languages, interests, projects, repositories, journey } from "@/data/portfolio";
+import { profile, languages, interests, projects, repositories, journey, type Project } from "@/data/portfolio";
+import { getProjectBrief } from "@/lib/ai/project-brief.functions";
+import type { ProjectBrief } from "@/lib/ai/project-brief.server";
 
 export const Route = createFileRoute("/")({
   head: () => ({
