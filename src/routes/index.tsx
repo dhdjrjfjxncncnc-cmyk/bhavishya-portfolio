@@ -287,7 +287,10 @@ function Projects() {
               <p className="mt-3 text-sm"><span className="font-semibold text-cyan">Problem: </span><span className="text-muted-foreground">{p.problem}</span></p>
               <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
               <ul className="mt-4 flex flex-wrap gap-2">{p.tech.map((t) => <li key={t} className="rounded-md bg-secondary px-2.5 py-1 font-mono text-xs">{t}</li>)}</ul>
-              <div className="mt-auto flex gap-3 pt-6">
+              <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
+                <button onClick={() => setBriefProject(p)} className="inline-flex items-center gap-1.5 rounded-full bg-gradient-brand px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5">
+                  <Sparkles className="size-4" /> AI Brief
+                </button>
                 {p.projectUrl ? <a href={p.projectUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">View Project <ArrowUpRight className="size-4" /></a>
                   : <span className="text-sm text-muted-foreground">Demo coming soon</span>}
                 {p.sourceUrl && <a href={p.sourceUrl} target="_blank" rel="noreferrer" className="ml-auto inline-flex items-center gap-1.5 text-sm font-semibold hover:text-cyan"><GithubIcon className="size-4" /> View Source Code</a>}
@@ -296,6 +299,7 @@ function Projects() {
           </article>
         ))}
       </div>
+      {briefProject && <ProjectBriefDialog project={briefProject} onClose={() => setBriefProject(null)} />}
     </Section>
   );
 }
