@@ -313,8 +313,8 @@ function Contact() {
             ))}
             <div>
               <label htmlFor="message" className="mb-1.5 block text-sm">Message</label>
-              <textarea id="message" name="message" rows={5} maxLength={1000} className={input} aria-invalid={!!errors.message} placeholder="Tell me about your idea…" />
-              {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message}</p>}
+              <textarea id="message" name="message" rows={5} maxLength={1000} className={input} aria-invalid={!!errors["message"]} placeholder="Tell me about your idea…" />
+              {errors["message"] && <p className="mt-1 text-sm text-destructive">{errors["message"]}</p>}
             </div>
             <button type="submit" className={`${btnPrimary} w-full justify-center`}>Send Message <Send className="size-4" /></button>
           </>)}
